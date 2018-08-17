@@ -1,0 +1,37 @@
+<%= form_with(model: post, local: true) do |form| %>
+<div class="mb-3">
+  <strong>
+    <%= form.label :image %>
+    <% if post.image.attached? %>
+    <%= image_tag(@post.image, :class => 'imagePreview') %>
+    <% else %>
+    <div>
+      <img class="imagePreview">
+    </div>
+    <% end %>
+  </strong>
+  <div class="input-group">
+    <%= form.file_field :image, class: 'inputFile', :required => true%>
+  </div>
+</div>
+<div class="mb-3">
+  <strong>
+    <%= form.label :title %>
+  </strong>
+  <div class="input-group">
+    <%= form.text_field :title, :required => true , :class => 'form-control', :placeholder => 'give a title to your post'%>
+  </div>
+</div>
+<div class="mb-3">
+  <strong>
+    <%= form.label :description %>
+  </strong>
+  <div class="input-group">
+    <%= form.text_area :description, :required => true , :class => 'form-control', :placeholder => 'give a description to your post'%>
+  </div>
+</div>
+
+<div class="mb-3">
+  <%= form.submit 'submit', :class => "btn btn-primary btn-lg btn-block" %>
+</div>
+<% end %>
