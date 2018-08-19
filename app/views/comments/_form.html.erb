@@ -1,0 +1,13 @@
+<%= form_with(model: [@post, @post.comments.build ]) do |form| %>
+  <div class="mb-3">
+  <strong>
+    comment
+  </strong>
+  <div class="input-group">
+    <%= form.text_area :body, :required => true , :class => 'form-control', :placeholder => 'what do you think about it?'%>
+  </div>
+</div>
+<div class="mb-3">
+  <%= form.submit 'add a comment', :class => "btn btn-primary btn-block" %>
+</div>
+<% end %>

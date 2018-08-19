@@ -10,8 +10,16 @@
 					<%= link_to 'Edit', edit_post_path(post), :class => 'btn btn-sm btn-outline-secondary' %>
 					<%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' }, :class => 'btn btn-sm btn-outline-secondary' %>
 				</div>
-				<small class="text-muted"><%= time_ago_in_words(post.updated_at) + ' ago' %></small>
+				<div class="row">
+					<div class="col">
+						<small class="text-muted"><%= post.comments.count.to_s + ' comments' %></small>
+					</div>
+					<div class="col">
+						<small class="text-muted"><%= time_ago_in_words(post.updated_at) + ' ago' %></small>
+					</div>
+				</div>
 			</div>
 		</div>
 	</div>
 </div>
+

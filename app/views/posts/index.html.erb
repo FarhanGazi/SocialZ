@@ -1,18 +1,40 @@
-<p id="notice"><%= notice %></p>
 <main role="main">
   <section class="jumbotron text-center">
     <div class="container">
-      <h1 class="jumbotron-heading">Posts</h1>
+      <div class="col">
+        <img src="http://www.gstatic.com/tv/thumb/persons/589228/589228_v9_ba.jpg" style="border-radius: 50%; width: 10rem; height: 10rem;">
+      </div>
+      <div class="py-4">
+      <h1 class="jumbotron-heading">Mark Zuckerberg</h1>
     </div>
-  </section>
+        <div class="row">
+        <div class="col">
+          <h2 class="text-muted">100</h2>
+            <p class="lead text-muted">posts</p>
+          </div>
+          <div class="col">
+            <h2 class="text-muted">20</h2>
+            <p class="lead text-muted">followers</p>
+            </div>
+            <div class="col">
+            <h2 class="text-muted">15</h2>
+            <p class="lead text-muted">followings</p>
+            </div>
+          </div>
+          <div class="py-3">
+            <a href="#" class="btn btn-outline-primary btn-block">Follow</a>
+          </div>
+        </p>
+      </div>
+    </section>
 
-  <div class="album py-5 bg-light">
-    <div class="container">
-      <%= render @posts %>
+    <div class="album py-5 bg-light">
+      <div class="container">
+        <%= render @posts %>
+      </div>
     </div>
-  </div>
-</main>
+  </main>
 
-<br>
+  <br>
 
 <%= link_to 'New Post', new_post_path %>
