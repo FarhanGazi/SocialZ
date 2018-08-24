@@ -8,7 +8,7 @@ class CommentsController < ApplicationController
     @comment = @post.comments.new(comment_params)
 
     respond_to do |format|
-      if @comment.save
+      if current_user.comments << @comment
         format.js
       else
         format.html { render :new }

@@ -5,7 +5,7 @@
 		<div class="card mb-4 shadow-sm">
 			<%= image_tag(@post.image, :class => 'card-img-top') %>
 			<div class="card-body">
-				<h5 class="card-title">Marck</h5>
+				<h5 class="card-title"><%= @post.user.email %></h5>
 				<p class="card-text"><%= @post.description %></p>
 				<div class="d-flex justify-content-between align-items-center">
 					<div class="btn-group">
@@ -25,11 +25,11 @@
 			</div>
 		</div>
 	</div>
+	<div id="commentslist">
+		<%= render @post.comments %>
+	</div>
 	<div class="col">
 		<%= render 'comments/form' %>
-	</div>
-	<div id="prova">
-		<%= render partial: "comments/comment", collection: @post.comments %>
 	</div>
 	<%= link_to 'Edit', edit_post_path(@post) %> |
 	<%= link_to 'Back', posts_path %>

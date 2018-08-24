@@ -1,10 +1,10 @@
     <div class="col">
       <div class="card">
         <div class="card-header">
-          <%= comment.post_id %>
+          <%= comment.user.email unless comment.user.blank? %>
         </div>
         <div class="card-body">
-          <p class="card-text"><%= comment.body %></p>
+          <p class="card-text"><%= comment.id %></p>
           <small class="text-muted"><%= time_ago_in_words(comment.created_at) unless comment.created_at.blank? %></small>
         </div>
       </div>
