@@ -1,38 +1,19 @@
 <main role="main">
   <section class="jumbotron text-center">
     <div class="container">
-      <div class="col">
-        <img src="http://www.gstatic.com/tv/thumb/persons/589228/589228_v9_ba.jpg" style="border-radius: 50%; width: 10rem; height: 10rem;">
-      </div>
-      <div class="py-4">
-      <h1 class="jumbotron-heading">Mark Zuckerberg</h1>
+      <h1 class="jumbotron-heading">Hi <%=current_user.email.split(/@/)[0].capitalize%>, welcome to SocialZ!</h1>
+      <p class="lead text-muted">currently there are <%=Post.all.count%> posts from <%=User.all.count%> users</p>
+      <p>
+        <%= link_to 'Add a new Post', new_post_path, :class => "btn btn-primary my-2" %>
+      </p>
     </div>
-        <div class="row">
-        <div class="col">
-          <h2 class="text-muted">100</h2>
-            <p class="lead text-muted">posts</p>
-          </div>
-          <div class="col">
-            <h2 class="text-muted">20</h2>
-            <p class="lead text-muted">followers</p>
-            </div>
-            <div class="col">
-            <h2 class="text-muted">15</h2>
-            <p class="lead text-muted">followings</p>
-            </div>
-          </div>
-          <div class="py-3">
-            <a href="#" class="btn btn-outline-primary btn-block">Follow</a>
-          </div>
-      </div>
-    </section>
-
-    <div class="album py-5 bg-light">
-      <div class="container">
-        <%= render @posts %>
-      </div>
+  </section>
+  <div class="album py-5 bg-light">
+    <div class="container">
+      <%= render @posts %>
     </div>
-  </main>
-  <br>
+  </div>
+</main>
+<br>
 
-<%= link_to 'New Post', new_post_path %>
+

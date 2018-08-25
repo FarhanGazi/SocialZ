@@ -1,37 +1,45 @@
-<p id="notice"><%= notice %></p>
-<div class="container">
-	<div class="col">
-		<h1><%= @post.title %></h1>
-		<div class="card mb-4 shadow-sm">
-			<%= image_tag(@post.image, :class => 'card-img-top') %>
-			<div class="card-body">
-				<h5 class="card-title"><%= @post.user.email %></h5>
-				<p class="card-text"><%= @post.description %></p>
-				<div class="d-flex justify-content-between align-items-center">
-					<div class="btn-group">
-						<%= link_to 'Edit', edit_post_path(@post), :class => 'btn btn-sm btn-outline-secondary' %>
-						<%= link_to 'Destroy', @post, method: :delete, data: { confirm: 'Are you sure?' }, :class => 'btn btn-sm btn-outline-secondary' %>
-					</div>
-					<div class="row">
-						<div class="col">
-							<small class="text-muted"><%= @post.comments.count.to_s + ' comments' %></small>
+<section class="jumbotron text-center">
+	<div class="container">
+		<h1 class="jumbotron-heading"><%=@post.title%></h1>
+		<p class="lead text-muted">by <%=@post.user.email.split(/@/)[0].capitalize%></p>
+	</div>
+</section>
+<div class="album py-5 bg-light">
+	<div class="container">
+		<div class="col">
+			<div class="card mb-4 shadow-sm">
+				<%= image_tag(@post.image, :class => 'card-img-top') %>
+				<div class="card-body">
+					<h5 class="card-title"><%= link_to @post.user.email, @post.user%></h5>
+					<p class="card-text"><%= @post.description %></p>
+					<div class="d-flex justify-content-between align-items-center">
+						<div class="btn-group">
+							<%if current_user.present? && current_user == @post.user%>
+							<%= link_to 'Edit', edit_post_path(@post), :class => 'btn btn-sm btn-outline-secondary' %>
+							<%= link_to 'Destroy', @post, method: :delete, data: { confirm: 'Are you sure?' }, :class => 'btn btn-sm btn-outline-danger' %>
+							<%end%>
 						</div>
-
-						<div class="col">
-							<small class="text-muted"><%= time_ago_in_words(@post.updated_at) + ' ago' %></small>
+						<div class="d-inline-block">
+							<div>
+								<small class="text-muted"><%=time_ago_in_words(@post.updated_at)%> ago</small>
+								<i class="fa fa-calendar-times-o"></i>
+							</div>
+							<div style="float: right;">
+								<small class="text-muted"><%=@post.comments.count%> comments</small>
+								<i class="fa fa-comment-o"></i>
+							</div>
 						</div>
 					</div>
 				</div>
 			</div>
 		</div>
+		<div id="commentslist">
+			<%= render @post.comments %>
+		</div>
+		<br />
+		<hr>
+		<div class="col">
+			<%= render 'comments/form' %>
+		</div>
 	</div>
-	<div id="commentslist">
-		<%= render @post.comments %>
-	</div>
-	<div class="col">
-		<%= render 'comments/form' %>
-	</div>
-	<%= link_to 'Edit', edit_post_path(@post) %> |
-	<%= link_to 'Back', posts_path %>
 </div>
-

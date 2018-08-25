@@ -1,0 +1,37 @@
+<header>
+  <div class="collapse bg-dark" id="navbarHeader">
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-8 col-md-7 py-3">
+          <h4 class="text-white">About</h4>
+          <p class="text-muted">SocialZ is social network!</p>
+        </div>
+        <div class="col-sm-4 offset-md-1 py-3">
+          <ul class="list-unstyled">
+            <% if current_user %>
+            <li><%= link_to "Home", :root , :class => "text-white"%></li>
+            <li><%= link_to "My profile (#{current_user.email.split(/@/)[0]})", current_user, :class => "text-white"%></li>
+            <%end%>
+            <li>
+              <% if current_user %>
+              <%= link_to "Log out", destroy_user_session_path, method: :delete, :class => "text-white" %>
+              <% else %>
+              <%= link_to "Sign in", new_user_session_path, :class => "text-white" %>
+              <div class="text-muted">or</div>
+              <%= link_to "Sign up", new_user_registration_path, :class => "text-white" %>
+              <% end %>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="navbar navbar-dark bg-dark shadow-sm">
+    <div class="container d-flex justify-content-between">
+      <strong><%= link_to "SocialZ", :root , :class => "navbar-brand d-flex align-items-center" %></strong>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarHeader" aria-controls="navbarHeader" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+    </div>
+  </div>
+</header>

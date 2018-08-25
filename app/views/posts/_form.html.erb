@@ -11,7 +11,7 @@
     <% end %>
   </strong>
   <div class="input-group">
-    <%= form.file_field :image, class: 'inputFile', :required => true%>
+    <%= form.file_field :image, class: 'inputFile btn btn-outline-primary', :required => true%>
   </div>
 </div>
 <div class="mb-3">
@@ -27,12 +27,11 @@
     <%= form.label :description %>
   </strong>
   <div class="input-group">
-    <%= form.text_area :description, :required => true , :class => 'form-control', :placeholder => 'give a description to your post'%>
+    <%= form.text_area :description, :required => true , :rows=>"5", :class => 'form-control', :placeholder => 'give a description to your post'%>
   </div>
 </div>
 
 <div class="mb-3">
-  <%= form.submit 'submit', :class => "btn btn-primary btn-lg btn-block" %>
-</div>
-<% end %>
-<%= javascript_include_tag 'image_preview', 'data-turbolinks-track': 'reload' %>
+  <%= form.submit 'upload', :class => "btn btn-primary" %>
+  <% end %>
+  <%= javascript_include_tag 'image_preview', 'data-turbolinks-track': 'reload' %>

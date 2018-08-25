@@ -4,57 +4,14 @@
   <title>SocialZ</title>
   <%= csrf_meta_tags %>
   <%= csp_meta_tag %>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 </head>
 <body>
-  <% if flash[:notice] %>
-  <div class="notification is-primary global-notification">
-    <p class="notice"><%= notice %></p>
-  </div>
-  <% end %>
-  <% if flash[:alert] %>
-  <div class="notification is-danger global-notification">
-    <p class="alert"><%= alert %></p>
-  </div>
-  <% end %>
-  <header>
-    <div class="collapse bg-dark" id="navbarHeader">
-      <div class="container">
-        <div class="row">
-          <div class="col-sm-8 col-md-7 py-4">
-            <h4 class="text-white">About</h4>
-            <p class="text-muted">SocialZ is social network!</p>
-          </div>
-          <div class="col-sm-4 offset-md-1 py-4">
-            <ul class="list-unstyled">
-              <li><%= link_to "Home", :root , :class => "text-white"%></li>
-              <li><%= link_to "Profile", current_user, :class => "text-white"%></li>
-              <li>
-                <% if current_user %>
-                <%= link_to "Log out", destroy_user_session_path, method: :delete, :class => "text-white" %>
-                <% else %>
-                <%= link_to "Log in", new_user_session_path, :class => "text-white" %>
-                <% end %>
-              </li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="navbar navbar-dark bg-dark shadow-sm">
-      <div class="container d-flex justify-content-between">
-        <a href="#" class="navbar-brand d-flex align-items-center">
-          <img src="" alt="oh no!">
-          <strong> SocialZ</strong>
-        </a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarHeader" aria-controls="navbarHeader" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-      </div>
-    </div>
-  </header>
+  <%= render 'shared/notification'%>
+  <%= render 'shared/navbar'%>
   <%= yield %>
 </body>
 </html>
