@@ -13,12 +13,12 @@
 					<%end%>
 				</div>
 				<div class="d-inline-block">
-					<div>
-						<small class="text-muted"><%=time_ago_in_words(post.updated_at)%> ago</small>
+					<div style="float: right;">
+						<small class="text-muted"> <%=time_ago_in_words(post.updated_at)%> </small>
 						<i class="fa fa-calendar-times-o"></i>
 					</div>
-					<div style="float: right;">
-						<small class="text-muted"><%=post.comments.count%> comments</small>
+					<div style="float: right;padding-right: 5px">
+						<small class="text-muted"> <%=post.comments.count%> comments</small>
 						<i class="fa fa-comment-o"></i>
 					</div>
 				</div>
@@ -26,4 +26,3 @@
 		</div>
 	</div>
 </div>
-
