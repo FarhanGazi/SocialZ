@@ -19,15 +19,16 @@
 							<%= link_to 'Destroy', @post, method: :delete, data: { confirm: 'Are you sure?' }, :class => 'btn btn-sm btn-outline-danger' %>
 							<%end%>
 						</div>
-						<div class="d-inline-block">
-							<div style="float: right;">
+						<div id="stats" class="d-inline-block">
+							<div style="float: right; padding-right: 5px;">
 								<small class="text-muted"><%=time_ago_in_words(@post.updated_at)%> ago</small>
 								<i class="fa fa-calendar-times-o"></i>
 							</div>
-							<div style="float: right; padding-right: 5px">
+							<div style="float: right; padding-right: 5px;">
 								<small class="text-muted"><%=@post.comments.count%> comments</small>
 								<i class="fa fa-comment-o"></i>
 							</div>
+							<%= render 'shared/like' %>
 						</div>
 					</div>
 				</div>

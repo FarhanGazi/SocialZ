@@ -1,4 +1,21 @@
 <%= form_with(model: post, local: true) do |form| %>
+<%if post.errors.any? %>
+<div id="error_explanation">
+  <div class="alert alert-danger">
+    <p>
+      <strong>
+        <%= pluralize(post.errors.count, "error")%> ,this post can't be uploaded because:    
+      </strong>
+      <ul>
+        <%post.errors.full_messages.each do |message|%>
+        <li><%= message%></li>
+        <% end %>
+      </ul>
+    </p>
+  </div>
+</div>
+<%end%>
+
 <div class="mb-3">
   <strong>
     <%= form.label :image %>

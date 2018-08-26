@@ -13,13 +13,22 @@
 					<%end%>
 				</div>
 				<div class="d-inline-block">
-					<div style="float: right;">
-						<small class="text-muted"> <%=time_ago_in_words(post.updated_at)%> </small>
+					<div style="float: right; padding-right: 5px;">
+						<small class="text-muted"> <%=time_ago_in_words(post.updated_at)%> ago</small>
 						<i class="fa fa-calendar-times-o"></i>
 					</div>
-					<div style="float: right;padding-right: 5px">
+					<div style="float: right;padding-right: 5px;">
 						<small class="text-muted"> <%=post.comments.count%> comments</small>
 						<i class="fa fa-comment-o"></i>
+					</div>
+					<div style="float: right; padding-right: 5px;">
+						<% if current_user.liked? post %>
+						<small class="text-muted"><%= pluralize(post.get_likes.size, 'like') %></small>
+						<i class="fa fa-heart" style="color:red"></i>
+						<% else %>
+						<small class="text-muted"><%= pluralize(post.get_likes.size, 'like') %></small>
+						<i class="fa fa-heart-o" style="color:black"></i>
+						<% end %>
 					</div>
 				</div>
 			</div>

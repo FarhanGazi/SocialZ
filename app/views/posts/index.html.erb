@@ -13,7 +13,9 @@
       <%if Post.count == 0%>
       <p class="lead text-muted text-center">Nothing has been uploaded yet.</p>
       <%end%>
-      <%= render @posts %>
+      <div id="my-posts">
+        <%= render @posts %>
+      </div>
     </div>
   </div>
 </main>

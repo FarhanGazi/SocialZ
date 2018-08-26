@@ -1,8 +1,5 @@
 class CommentsController < ApplicationController
-  before_action :set_comment, only: [:destroy]
 
-  # POST /comments
-  # POST /comments.json
   def create
     @post = Post.find(params[:post_id])
     @comment = @post.comments.new(comment_params)
@@ -11,29 +8,24 @@ class CommentsController < ApplicationController
       if current_user.comments << @comment
         format.js
       else
-        format.html { render :new }
+        format.html { render 'post/show' }
       end
     end
   end
 
-  # DELETE /comments/1
-  # DELETE /comments/1.json
   def destroy
+    @post = Post.find(params[:post_id])
+    @comment = @post.comments.find(params[:id])
     @comment.destroy
+
     respond_to do |format|
-      format.html { redirect_to comments_url, notice: 'Comment was successfully destroyed.' }
-      format.json { head :no_content }
+      format.js
     end
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_comment
-      @comment = Comment.find(params[:id])
-    end
-
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def comment_params
-      params.require(:comment).permit(:body)
-    end
+  .
+  def comment_params
+    params.require(:comment).permit(:body)
+  end
 end

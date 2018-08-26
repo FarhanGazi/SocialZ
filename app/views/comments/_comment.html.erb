@@ -1,13 +1,28 @@
-    <div class="col">
-      <div class="card">
-        <div class="card-header">
-          <%= link_to comment.user.email, comment.user%>
-          <small class="text-muted">replied to <%= link_to comment.post.user.email, comment.user%>'s post</small>
-        </div>
-        <div class="card-body">
-          <p class="card-text"><%= comment.body %></p>
-          <small class="text-muted"><%= time_ago_in_words(comment.created_at) unless comment.created_at.blank? %> ago
-          </small>
+    <comment>
+      <div class="col">
+        <div class="card">
+          <div class="card-header">
+            <%= link_to comment.user.email, comment.user%>
+            <small class="text-muted">
+              replied to <%= link_to comment.post.user.email, comment.post.user%>'s post
+            </small>
+          </div>
+          <div class="card-body">
+            <p class="card-text"><%= comment.body %></p>
+            <div class="d-inline-block">
+              <div style="float: right; padding-right: 5px;">
+                <i class="fa fa-calendar-times-o"></i>
+                <small class="text-muted"> <%=time_ago_in_words(comment.updated_at)%> ago</small>
+              </div>
+            </div>
+            <%if current_user.present? && current_user == comment.user %>
+            <div style="float: right; padding-right: 5px;">
+              <small class="text-muted">
+                <%= link_to 'Destroy', [@post, comment], method: :delete, remote: true, :class => 'delete btn btn-sm btn-outline-danger' %>
+              </small>
+            </div>
+            <%end%>
+          </div>
         </div>
       </div>
-    </div>
+    </comment>
