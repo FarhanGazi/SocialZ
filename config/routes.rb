@@ -1,9 +1,6 @@
 Rails.application.routes.draw do
-
 	devise_for :users
-
 	resources :users
-
 	resources :posts do 
 		resources :comments
 		member do 
@@ -13,7 +10,7 @@ Rails.application.routes.draw do
 	end
 
 	unauthenticated do 
-		root to: 'posts#index'
+		root to: 'welcome#index'
 	end
 
 	authenticated do 
