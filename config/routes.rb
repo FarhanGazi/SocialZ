@@ -8,7 +8,6 @@ Rails.application.routes.draw do
 			put 'unlike', to: "posts#unlike"
 		end
 	end
-
 	unauthenticated do 
 		root to: 'welcome#index'
 	end
@@ -16,5 +15,4 @@ Rails.application.routes.draw do
 	authenticated do 
 		root to: 'posts#index'
 	end
-	
 end
