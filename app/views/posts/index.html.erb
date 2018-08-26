@@ -2,7 +2,7 @@
   <section class="jumbotron text-center">
     <div class="container">
       <h1 class="jumbotron-heading">Hi <%=current_user.email.split(/@/)[0].capitalize%>, welcome to SocialZ!</h1>
-      <p class="lead text-muted">currently there are <%=Post.all.count%> posts from <%=User.all.count%> users</p>
+      <p class="lead text-muted">currently there are <%= pluralize(Post.all.count, "post")%> from <%= pluralize(User.all.count, "user")%></p>
       <p>
         <%= link_to 'Add a new Post', new_post_path, :class => "btn btn-primary my-2" %>
       </p>
