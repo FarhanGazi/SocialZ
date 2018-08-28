@@ -12,13 +12,13 @@
 					<p>This is a social network for Zuccante's students.</p>
 				</div>
 			</div>
-			<div class="carousel-item" style="background-image: url('https://i.redd.it/lfndtoirttvx.jpg')">
+			<div class="carousel-item" style="background-image: url('https://wallpapermemory.com/uploads/681/firewatch-background-dual-screen-3200x1024-468007.jpg')">
 				<div class="carousel-caption d-none d-md-block">
 					<h3>Upload images</h3>
 					<p>Here you can upload images about your school.</p>
 				</div>
 			</div>
-			<div class="carousel-item" style="background: url('https://cdnb.artstation.com/p/assets/images/images/006/771/807/large/daka-dibuja-6-medio-dia.jpg?1501127200');">
+			<div class="carousel-item" style="background: url('https://i.imgur.com/e1ut4lp.jpg');">
 				<div class="carousel-caption d-none d-md-block">
 					<h3>Have fan</h3>
 					<p>Enjoy the socialnetwork with <%= pluralize(Post.all.count, "post")%> from <%= pluralize(User.all.count, "user")%></p>
@@ -39,6 +39,19 @@
 <!-- Page Content -->
 <section class="py-5">
 	<div class="container">
-		<h1>This project has been made in Ruby on Rails!</h1>
+		<code>made in</code>
+		<h1 class="jumbotron-heading">
+			<code>
+				Ruby on Rails!
+			</code>
+		</h1>
+		<div class="row text-center">
+			<div class="col">
+				<%= link_to 'Sign in', new_user_session_path, :class => "btn btn-outline-primary btn-block" %>
+			</div>
+			<div class="col">
+				<%= link_to 'Sign up', new_user_registration_path, :class => "btn btn-outline-success btn-block" %>
+			</div>
+		</div>
 	</div>
 </section>

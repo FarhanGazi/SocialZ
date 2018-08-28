@@ -1,3 +1,5 @@
 $('.delete').bind('ajax:success', function(){
 	$(this).closest('comment').fadeOut();
 });
+$('#commentStatus').remove();
+$('#stats').append("<%= j render 'shared/commentStatus' %>")

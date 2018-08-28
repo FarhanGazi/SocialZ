@@ -24,10 +24,7 @@
 								<small class="text-muted"><%=time_ago_in_words(@post.updated_at)%> ago</small>
 								<i class="fa fa-calendar-times-o"></i>
 							</div>
-							<div style="float: right; padding-right: 5px;">
-								<small class="text-muted"><%=@post.comments.count%> comments</small>
-								<i class="fa fa-comment-o"></i>
-							</div>
+							<%= render 'shared/commentStatus'%>
 							<%= render 'shared/like' %>
 						</div>
 					</div>

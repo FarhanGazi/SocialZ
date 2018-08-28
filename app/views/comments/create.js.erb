@@ -1,1 +1,3 @@
 $('#commentslist').append("<%= j render @comment %>");
+$('#commentStatus').remove();
+$('#stats').append("<%= j render 'shared/commentStatus' %>")
