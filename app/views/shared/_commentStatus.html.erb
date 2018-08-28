@@ -1,4 +1,4 @@
 <div id="commentStatus" style="float: right; padding-right: 5px;">
-	<small class="text-muted"><%=@post.comments.count%> comments</small>
+	<small class="text-muted"><%= pluralize(@post.comments.count, 'comment') %></small>
 	<i class="fa fa-comment-o"></i>
 </div>
