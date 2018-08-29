@@ -2,4 +2,4 @@ $('.delete').bind('ajax:success', function(){
 	$(this).closest('post').fadeOut();
 });
 $('.postInfAll').html('currently there are <%= j pluralize(Post.all.count, "post")%> from <%= j pluralize(User.all.count, "user")%>');
-$('.postInfUser').html('this album have <%= j pluralize(@user.posts.count, "post")%>');
+$('.postInfUser').html('this album have <%= j pluralize(current_user.posts.count, "post")%>');
