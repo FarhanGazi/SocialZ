@@ -33,8 +33,8 @@ $ cd config
 default: &default
   adapter: postgresql
   encoding: unicode
-  username: "YOUR POSTGRESQL USER_NAME"
-  password: "YOUR POSTGRESQL USER_PASSWORD"
+  username: YOUR POSTGRESQL USER_NAME
+  password: YOUR POSTGRESQL USER_PASSWORD
   ...
   ```
 
