@@ -19,39 +19,50 @@ https://socialzeta.herokuapp.com/
 ##### Database: 
 * Postgresql
 
-##### Dasabate setup: 
-1) install postgresql in your system
-2) create a new user
-3) give the superuser permission to the new user
-5) move to the config dir
+##### Environments setup:
+1) follow this (or other) guides to install ruby on rails on your device:
+(tutorial) https://gorails.com/setup/ubuntu/18.10
+
+2) install postgresql in your system: 
+(tutorial) https://www.youtube.com/watch?v=-LwI4HMR_Eg
+
+3) clone this repository by executing this commands in your terminal:
 ```sh
-$ cd config
+$ git clone https://github.com/FarhanGazi/SocialZ.git
 ```
-4) open the `database.yml` file
-5) edit the file
+
+##### Dasabate setup: 
+4) move to the config directory
+```sh
+$ cd ~/SocialZ/config
+```
+5) open the `database.yml` file
+
+6) edit the file
 ```sh
 default: &default
   adapter: postgresql
   encoding: unicode
-  username: "YOUR POSTGRESQL USER_NAME"
-  password: "YOUR POSTGRESQL USER_PASSWORD"
+  username: YOUR POSTGRESQL USER_NAME
+  password: YOUR POSTGRESQL USER_PASSWORD
   ...
   ```
 
 ##### Database creation: 
-write the terminal command inside the porject directory:
+7) write these terminal commands:
 ```sh
+$ cd ..
 $ rake db:setup
 ```
 
 ##### Database initialization: 
-and create the tables
+8) then create the tables by executing the migrations:
 ```sh
 $ rake db:migrate
 ```
 
 ##### Run the project in local:
-write the terminal command inside the porject directory:
+9) write the terminal command inside the porject directory:
 ```sh
 $ bin/rails s
 ```

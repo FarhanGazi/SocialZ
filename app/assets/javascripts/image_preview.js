@@ -1,3 +1,4 @@
+/* A function that catches the action on ".inputFile" to set the image on ".imagePreview"*/
 function previewImage(input){
   var reader = new FileReader();
 

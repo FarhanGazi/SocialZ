@@ -1,6 +1,11 @@
+/* imports bootstrap css file */
 @import "bootstrap";
+
+/* imports custom css files */
 @import "custom/social_first_custom";
 @import "custom/half-slider";
+
+/* defines styling which goes over all the project */
 .alert {
 	text-align: center;
     position: relative;
