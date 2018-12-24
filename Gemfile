@@ -32,6 +32,10 @@ gem 'bootsnap', '>= 1.1.0', require: false
 # Acts As Votable is a Ruby Gem specifically written for Rails/ActiveRecord models.
 gem 'acts_as_votable'
 
+gem "rack", ">= 2.0.6"
+
+gem "loofah", ">= 2.2.3"
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
