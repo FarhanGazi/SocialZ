@@ -22,7 +22,7 @@ gem 'jbuilder', '~> 2.5'
 # Provides Sprockets implementation for Rails 4.x (and beyond) Asset Pipeline.
 gem 'sprockets-rails', :require => 'sprockets/railtie'
 # Bootstrap 4 ruby gem for Ruby on Rails (Sprockets) and Hanami (formerly Lotus).
-gem 'bootstrap', '~> 4.1.3'
+gem 'bootstrap', '~> 4.3.1'
 # This gem provides jQuery and the jQuery-ujs driver for your Rails 4+ application.
 gem 'jquery-rails'
 # Devise is a flexible authentication solution for Rails based on Warden.
